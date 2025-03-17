@@ -6,16 +6,15 @@ def load_model(filename):
   return model
 
 def predict_with_model(model, user_input):
-  prediction: model.predict([user_input])
-  return prediciton[0]
+  prediction = model.predict([user_input])
+  return prediction[0]
 
 def main():
   st.title('Dermatology Machine Learning')
-  st.info('The app uses Machine Learning')
+  st.info('This app using machine learning')
 
-  #input data by user
-  erythema = st.slider('Erythema', min_value = 0, max_value = 3, value = 2)
-
+  # input data by user
+  erythema = st.slider('Erythema', min_value=0, max_value=3, value=2)
   scaling = st.slider('Scaling', min_value = 0, max_value = 3, value = 2)
 
   definite_borders = st.slider('Definite Borders', min_value = 0, max_value = 3, value = 2)
@@ -33,7 +32,7 @@ def main():
   knee_and_elbow_involvement = st.slider('Knee and Elbow Involvement', min_value = 0, max_value = 3, value = 0)
 
   scalp_involvement = st.slider('Scalp Involvement', min_value = 0, max_value = 3, value = 0)
-
+  
   family_history = st.slider('Family History', min_value = 0, max_value = 1, value = 0)
 
   melanin_incontinence = st.slider('Melanin Incontinence', min_value = 0, max_value = 3, value = 0)
@@ -82,26 +81,25 @@ def main():
 
   age = st.slider('age', min_value = 0, max_value = 75, value = 40)
 
+
   # Input Data for Program
 
   user_input = [erythema, scaling, definite_borders, itching, koebner_phenomenon, polygonal_papules, follicular_papules, oral_mucosal_involvement,
 
-                knee_and_elbow_involvement, scalp_involvement, family_history, melanin_incontinence, eosinophils_infiltrate, PNL_infiltrate,
+  knee_and_elbow_involvement, scalp_involvement, family_history, melanin_incontinence, eosinophils_infiltrate, PNL_infiltrate,
 
-                fibrosis_papillary_dermis, exocytosis, acanthosis, hyperkeratosis, parakeratosis, clubbing_rete_ridges, elongation_rete_ridges,
+  fibrosis_papillary_dermis, exocytosis, acanthosis, hyperkeratosis, parakeratosis, clubbing_rete_ridges, elongation_rete_ridges,
 
-               thinning_suprapapillary_epidermis, spongiform_pustule, munro_microabcess, focal_hypergranulosis, disappearance_granular_layer,
+  thinning_suprapapillary_epidermis, spongiform_pustule, munro_microabcess, focal_hypergranulosis, disappearance_granular_layer,
 
-               vacuolisation_damage_basal_layer, spongiosis, saw_tooth_appearance_retes, follicular_horn_plug, perifollicular_parakeratosis,
+  vacuolisation_damage_basal_layer, spongiosis, saw_tooth_appearance_retes, follicular_horn_plug, perifollicular_parakeratosis,
 
-               inflammatory_mononuclear_infiltrate, band_like_infiltrate, age]
+  inflammatory_mononuclear_infiltrate, band_like_infiltrate, age]
 
   model_filename = 'trained_model.pkl'
   model = load_model(model_filename)
   prediction = predict_with_model(model, user_input)
   st.write('The prediction output is: ', prediction)
 
-
-
 if __name__ == "__main__":
-  main()
+main()
