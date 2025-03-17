@@ -102,4 +102,4 @@ def main():
   st.write('The prediction output is: ', prediction)
 
 if __name__ == "__main__":
-main()
+  main()
